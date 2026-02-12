@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
+import "@mantine/core/styles.css";
+import { ColorSchemeScript, createTheme, MantineProvider, mantineHtmlProps } from "@mantine/core";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar/index";
+
 import "@/styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const theme = createTheme({});
 
 export const metadata: Metadata = {
   title: "Wesley Kim",
@@ -25,12 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Footer />
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider theme={theme}>
+          <NavBar />
+          {children}
+          <Footer />
+        </MantineProvider>
       </body>
     </html>
   );
