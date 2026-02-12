@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import "@mantine/core/styles.css";
-import { ColorSchemeScript, createTheme, MantineProvider, mantineHtmlProps } from "@mantine/core";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from 'next';
+import '@mantine/core/styles.css';
+import { ColorSchemeScript, createTheme, MantineProvider, mantineHtmlProps } from '@mantine/core';
+import { Geist, Geist_Mono } from 'next/font/google';
 
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar/index";
+import Footer from '@/components/Footer';
+import NavBar from '@/components/NavBar/index';
 
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
 const theme = createTheme({});
 
 export const metadata: Metadata = {
-  title: "Wesley Kim",
+  title: 'Wesley Kim',
   description: "Welcome to Wesley Kim's portfolio website!",
 };
 

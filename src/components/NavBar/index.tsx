@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { Burger, Container, Group } from '@mantine/core';
@@ -34,7 +34,6 @@ export default function NavBar() {
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
