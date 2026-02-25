@@ -7,7 +7,8 @@ export function Navbar() {
 
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Work Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'education', label: 'Education' },
   ];

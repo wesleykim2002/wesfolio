@@ -1,5 +1,6 @@
 import { Navbar } from './components/Navbar';
 import { About } from './components/About';
+import { TechnicalSkills } from './components/TechnicalSkills';
 import { WorkExperience } from './components/WorkExperience';
 import { Projects } from './components/Projects';
 import { Education } from './components/Education';
@@ -10,13 +11,14 @@ export default function App() {
       <Navbar />
       <main>
         <About />
+        <TechnicalSkills />
         <WorkExperience />
         <Projects />
         <Education />
       </main>
       <footer className="bg-gray-900 text-white py-8 text-center">
         <p className="text-gray-400">
-          © 2026 Wesley Kim. All rights reserved.
+          © 2026 Your Name. All rights reserved.
         </p>
       </footer>
     </div>

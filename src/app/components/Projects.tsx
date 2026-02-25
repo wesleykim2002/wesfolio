@@ -29,21 +29,6 @@ const projects: Project[] = [
     liveUrl: 'https://project2.example.com',
     imageColor: 'from-purple-500 to-pink-500',
   },
-  {
-    title: 'Weather Dashboard',
-    description: 'Beautiful weather dashboard with location-based forecasts, interactive maps, and historical data visualization.',
-    technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Express'],
-    githubUrl: 'https://github.com/yourusername/project3',
-    liveUrl: 'https://project3.example.com',
-    imageColor: 'from-green-500 to-teal-500',
-  },
-  {
-    title: 'Social Media Analytics',
-    description: 'Analytics dashboard for tracking social media metrics, engagement rates, and audience insights across platforms.',
-    technologies: ['Next.js', 'MongoDB', 'D3.js', 'Node.js'],
-    githubUrl: 'https://github.com/yourusername/project4',
-    imageColor: 'from-orange-500 to-red-500',
-  },
 ];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -128,8 +113,8 @@ export function Projects() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-6" ref={ref}>
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-20 px-6 bg-gray-50" ref={ref}>
+      <div className="max-w-5xl mx-auto">
         <motion.h2 
           className="text-4xl mb-12 text-center"
           initial={{ opacity: 0, y: -30 }}
@@ -139,7 +124,7 @@ export function Projects() {
           Projects
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
