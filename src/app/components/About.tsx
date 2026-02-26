@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
+import profileImage from '../../assets/profile.jpeg';
 
 const roles = [
+  'Software Developer',
   'Full Stack Developer',
-  'UI/UX Enthusiast',
+  'Mechatronics Engineer',
   'Problem Solver',
-  'Tech Innovator',
 ];
 
 export function About() {
@@ -35,7 +36,11 @@ export function About() {
               delay: 0.1 
             }}
           >
-            YN
+            <img
+              src={profileImage}
+              alt="Wesley Kim"
+              className="w-full h-full object-cover rounded-full"
+            />
           </motion.div>
           
           <div className="flex-1 text-center md:text-left">
@@ -54,7 +59,7 @@ export function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Your Name
+              Wesley Kim
             </motion.h1>
             
             <motion.div 
@@ -80,10 +85,9 @@ export function About() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              I'm a passionate developer with experience in building modern web applications. 
-              I love creating intuitive user experiences and solving complex problems with clean, 
-              efficient code. When I'm not coding, you can find me exploring new technologies 
-              and contributing to open-source projects.
+              I'm a UW Mechatronics Engineering graduate with a passion for software development.<br />
+              I love building things that solve real problems and make people's lives easier.<br />
+              When I'm not coding, you can find me at the Rogers Center cheering on the Blue Jays or out on a lake fishing. Don't talk to me about November 1, 2025.
             </motion.p>
 
             <motion.div 
@@ -93,7 +97,7 @@ export function About() {
               transition={{ delay: 0.6 }}
             >
               <MapPin size={18} />
-              <span>San Francisco, CA</span>
+              <span>Toronto, ON</span>
             </motion.div>
 
             <motion.div 
@@ -103,32 +107,32 @@ export function About() {
               transition={{ delay: 0.7 }}
             >
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/wesleykim2002"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                 aria-label="GitHub"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}
               >
                 <Github size={20} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/yourusername"
+                href="https://linkedin.com/in/wes-kim"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                 aria-label="LinkedIn"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}
               >
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="mailto:your.email@example.com"
+                href="mailto:wes.software.dev@gmail.com"
                 className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                 aria-label="Email"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}
               >
                 <Mail size={20} />

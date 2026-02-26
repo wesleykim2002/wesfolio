@@ -52,7 +52,7 @@ export function Navbar() {
             onClick={() => scrollToSection('about')}
             className="font-semibold text-xl"
           >
-            Portfolio
+            Wesley Kim
           </button>
 
           {/* Desktop Navigation */}
