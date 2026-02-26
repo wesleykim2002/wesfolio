@@ -2,34 +2,7 @@ import { useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useInView } from './useInView';
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  imageColor: string;
-}
-
-const projects: Project[] = [
-  {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured e-commerce platform with payment integration, inventory management, and real-time order tracking.',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    githubUrl: 'https://github.com/yourusername/project1',
-    liveUrl: 'https://project1.example.com',
-    imageColor: 'from-blue-500 to-cyan-500',
-  },
-  {
-    title: 'Task Management App',
-    description: 'Collaborative task management application with drag-and-drop interface, real-time updates, and team features.',
-    technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/yourusername/project2',
-    liveUrl: 'https://project2.example.com',
-    imageColor: 'from-purple-500 to-pink-500',
-  },
-];
+import { portfolio, type Project } from '../data/portfolio';
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -125,7 +98,7 @@ export function Projects() {
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {projects.map((project, index) => (
+          {portfolio.projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>

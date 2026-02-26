@@ -2,13 +2,9 @@ import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import profileImage from '../../assets/profile.jpeg';
+import { portfolio } from '../data/portfolio';
 
-const roles = [
-  'Software Developer',
-  'Full Stack Developer',
-  'Mechatronics Engineer',
-  'Problem Solver',
-];
+const roles = portfolio.about.roles;
 
 export function About() {
   const [currentRole, setCurrentRole] = useState(0);
@@ -59,7 +55,7 @@ export function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Wesley Kim
+              {portfolio.person.name}
             </motion.h1>
             
             <motion.div 
@@ -85,9 +81,12 @@ export function About() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              I'm a UW Mechatronics Engineering graduate with a passion for software development.<br />
-              I love building things that solve real problems and make people's lives easier.<br />
-              When I'm not coding, you can find me at the Rogers Center cheering on the Blue Jays or out on a lake fishing. Don't talk to me about November 1, 2025.
+              {portfolio.about.lines.map((line, index) => (
+                <span key={line}>
+                  {line}
+                  {index < portfolio.about.lines.length - 1 && <br />}
+                </span>
+              ))}
             </motion.p>
 
             <motion.div 
@@ -97,7 +96,7 @@ export function About() {
               transition={{ delay: 0.6 }}
             >
               <MapPin size={18} />
-              <span>Toronto, ON</span>
+              <span>{portfolio.person.location}</span>
             </motion.div>
 
             <motion.div 
@@ -107,7 +106,7 @@ export function About() {
               transition={{ delay: 0.7 }}
             >
               <motion.a
-                href="https://github.com/wesleykim2002"
+                href={portfolio.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about-link"
@@ -118,7 +117,7 @@ export function About() {
                 <Github size={20} />
               </motion.a>
               <motion.a
-                href="https://linkedin.com/in/wes-kim"
+                href={portfolio.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about-link"
@@ -129,7 +128,7 @@ export function About() {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="mailto:wes.software.dev@gmail.com"
+                href={`mailto:${portfolio.person.email}`}
                 className="about-link"
                 aria-label="Email"
                 whileHover={{ scale: 1.1}}

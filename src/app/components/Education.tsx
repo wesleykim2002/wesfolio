@@ -1,13 +1,7 @@
 import { GraduationCap, Award, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useInView } from './useInView';
-
-const certifications = [
-  'AWS Certified Solutions Architect',
-  'Google Professional Cloud Developer',
-  'MongoDB Certified Developer',
-  'React Advanced Certification',
-];
+import { portfolio } from '../data/portfolio';
 
 export function Education() {
   const [ref, isInView] = useInView({ threshold: 0.2 });
@@ -32,29 +26,24 @@ export function Education() {
         >
           <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
             <div>
-              <h3 className="text-2xl text-blue-600 mb-1">Bachelor of Science in Computer Science</h3>
+              <h3 className="text-2xl text-blue-600 mb-1">{portfolio.education.degree}</h3>
               <div className="flex items-center gap-2 text-gray-700 mb-2">
                 <GraduationCap size={18} />
-                <span className="font-medium">University of California, Berkeley</span>
+                <span className="font-medium">{portfolio.education.school}</span>
               </div>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <Calendar size={18} />
-              <span>2020 - 2024</span>
+              <span>{portfolio.education.period}</span>
             </div>
           </div>
           
           <p className="text-gray-700 mb-4">
-            Focused on software engineering, web development, and database systems.
+            {portfolio.education.summary}
           </p>
           
           <ul className="space-y-2">
-            {[
-              'GPA: 3.8/4.0',
-              'Dean\'s List all semesters',
-              'President of Computer Science Student Association',
-              'Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems, Software Engineering',
-            ].map((achievement, i) => (
+            {portfolio.education.achievements.map((achievement, i) => (
               <motion.li 
                 key={i} 
                 className="flex items-start gap-2"
@@ -69,7 +58,7 @@ export function Education() {
           </ul>
         </motion.div>
 
-        <motion.div 
+        {/* <motion.div 
           className="bg-white rounded-lg p-8 shadow-md"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -81,7 +70,7 @@ export function Education() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {certifications.map((cert, index) => (
+            {portfolio.certifications.map((cert, index) => (
               <motion.div
                 key={index}
                 className="flex items-start gap-2 p-4 bg-blue-50 rounded-lg"
@@ -95,7 +84,7 @@ export function Education() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

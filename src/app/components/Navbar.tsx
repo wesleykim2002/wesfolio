@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { portfolio } from '../data/portfolio';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +53,7 @@ export function Navbar() {
             onClick={() => scrollToSection('about')}
             className="font-semibold text-xl"
           >
-            Wesley Kim
+            {portfolio.person.name}
           </button>
 
           {/* Desktop Navigation */}

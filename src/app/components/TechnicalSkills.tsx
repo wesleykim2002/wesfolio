@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useInView } from './useInView';
+import { portfolio, type PortfolioSkill } from '../data/portfolio';
 import { 
   SiReact, 
   SiTypescript, 
@@ -26,6 +27,7 @@ import {
   SiJenkins,
   SiDrone
 } from 'react-icons/si';
+import type { IconType } from 'react-icons';
 
 interface Skill {
   name: string;
@@ -66,32 +68,38 @@ function SkillItem({ skill, isInView }: SkillItemProps) {
   );
 }
 
-const skills: Skill[] = [
-  { name: 'Python', icon: SiPython, color: 'text-[#3776AB]' },
-  { name: 'Django', icon: SiDjango, color: 'text-[#092E20]' },
-  { name: 'React', icon: SiReact, color: 'text-[#61DAFB]' },
-  { name: 'TypeScript', icon: SiTypescript, color: 'text-[#3178C6]' },
-  { name: 'JavaScript', icon: SiJavascript, color: 'text-[#F7DF1E]' },
-  { name: 'Go', icon: SiGo, color: 'text-[#00ADD8]' },
-  { name: 'Next.js', icon: SiNextdotjs, color: 'text-[#000000]' },
-  { name: 'Node.js', icon: SiNodedotjs, color: 'text-[#339933]' },
-  { name: 'SQL', icon: SiSqlite, color: 'text-[#003B57]' },
-  { name: 'PostgreSQL', icon: SiPostgresql, color: 'text-[#4169E1]' },
-  { name: 'MongoDB', icon: SiMongodb, color: 'text-[#47A248]' },
-  { name: 'AWS', icon: SiAmazonwebservices, color: 'text-[#FF9900]' },
-  { name: 'Docker', icon: SiDocker, color: 'text-[#2496ED]' },
-  { name: 'Flask', icon: SiFlask, color: 'text-[#000000]' },
-  { name: 'Jinja', icon: SiJinja, color: 'text-[#B41717]' },
-  { name: 'Selenium', icon: SiSelenium, color: 'text-[#43B02A]' },
-  { name: 'Redis', icon: SiRedis, color: 'text-[#DC382D]' },
-  { name: 'Postman', icon: SiPostman, color: 'text-[#FF6C37]' },
-  { name: 'PHP', icon: SiPhp, color: 'text-[#777BB4]' },
-  { name: 'GraphQL', icon: SiGraphql, color: 'text-[#E10098]' },
-  { name: 'YAML', icon: SiYaml, color: 'text-[#CB171E]' },
-  { name: 'Git', icon: SiGit, color: 'text-[#F05032]' },
-  { name: 'Jenkins', icon: SiJenkins, color: 'text-[#D24939]' },
-  { name: 'Drone', icon: SiDrone, color: 'text-[#212121]' },
-];
+const skillIcons: Record<string, IconType> = {
+  Python: SiPython,
+  Django: SiDjango,
+  React: SiReact,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  Go: SiGo,
+  'Next.js': SiNextdotjs,
+  'Node.js': SiNodedotjs,
+  SQL: SiSqlite,
+  PostgreSQL: SiPostgresql,
+  MongoDB: SiMongodb,
+  AWS: SiAmazonwebservices,
+  Docker: SiDocker,
+  Flask: SiFlask,
+  Jinja: SiJinja,
+  Selenium: SiSelenium,
+  Redis: SiRedis,
+  Postman: SiPostman,
+  PHP: SiPhp,
+  GraphQL: SiGraphql,
+  YAML: SiYaml,
+  Git: SiGit,
+  Jenkins: SiJenkins,
+  Drone: SiDrone,
+};
+
+const skills: Skill[] = portfolio.skills.map((skill: PortfolioSkill) => ({
+  name: skill.name,
+  icon: skillIcons[skill.name] ?? SiReact,
+  color: skill.color,
+}));
 
 export function TechnicalSkills() {
   const [ref, isInView] = useInView({ threshold: 0.3 });
