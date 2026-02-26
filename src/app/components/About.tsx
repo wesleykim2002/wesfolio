@@ -22,11 +22,11 @@ export function About() {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-20 px-6">
-      <div className="max-w-4xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row items-center gap-12">
+    <section id="about" className="about-section">
+      <div className="about-container">
+        <div className="about-layout">
           <motion.div 
-            className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-6xl flex-shrink-0"
+            className="about-avatar"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ 
@@ -39,13 +39,13 @@ export function About() {
             <img
               src={profileImage}
               alt="Wesley Kim"
-              className="w-full h-full object-cover rounded-full"
+              className="about-avatar-image"
             />
           </motion.div>
           
-          <div className="flex-1 text-center md:text-left">
+          <div className="about-content">
             <motion.p 
-              className="text-blue-600 mb-2"
+              className="about-kicker"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -54,7 +54,7 @@ export function About() {
             </motion.p>
             
             <motion.h1 
-              className="text-5xl mb-4"
+              className="about-title"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -63,7 +63,7 @@ export function About() {
             </motion.h1>
             
             <motion.div 
-              className="text-2xl text-gray-600 mb-6 h-8"
+              className="about-roles"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -80,7 +80,7 @@ export function About() {
             </motion.div>
             
             <motion.p 
-              className="text-gray-700 mb-6 leading-relaxed"
+              className="about-description"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -91,7 +91,7 @@ export function About() {
             </motion.p>
 
             <motion.div 
-              className="flex items-center justify-center md:justify-start gap-2 text-gray-600 mb-6"
+              className="about-location"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -101,7 +101,7 @@ export function About() {
             </motion.div>
 
             <motion.div 
-              className="flex gap-4 justify-center md:justify-start"
+              className="about-links"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -110,7 +110,7 @@ export function About() {
                 href="https://github.com/wesleykim2002"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="about-link"
                 aria-label="GitHub"
                 whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}
@@ -121,7 +121,7 @@ export function About() {
                 href="https://linkedin.com/in/wes-kim"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="about-link"
                 aria-label="LinkedIn"
                 whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}
@@ -130,7 +130,7 @@ export function About() {
               </motion.a>
               <motion.a
                 href="mailto:wes.software.dev@gmail.com"
-                className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="about-link"
                 aria-label="Email"
                 whileHover={{ scale: 1.1}}
                 whileTap={{ scale: 0.9 }}

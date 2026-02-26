@@ -101,15 +101,6 @@ export function TechnicalSkills() {
   return (
     <section id="skills" className="py-20 px-1 bg-gray-50" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <style>{`
-          @keyframes marquee-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-          }
-          .animate-marquee-right {
-            animation: marquee-right 50s linear infinite;
-          }
-        `}</style>
         <motion.h2 
           className="text-4xl mb-12 text-center"
           initial={{ opacity: 0, y: -30 }}
