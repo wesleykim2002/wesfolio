@@ -24,7 +24,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       >
         <motion.div
           initial={{ rotate: 0 }}
-          animate={{ rotate: isHovered ? 360 : 0 }}
           transition={{ duration: 0.6 }}
         >
           {project.title.split(' ').map(word => word[0]).join('')}
