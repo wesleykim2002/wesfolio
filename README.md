@@ -1,6 +1,6 @@
 # Wesfolio
 
-A modern, responsive portfolio website built with Vite and React, based on the original Figma design. This project focuses on fast iteration, clean UI composition, and a component-driven layout.
+A modern, responsive portfolio website built with Vite + React. The content is centralized in a single config file for easy updates.
 
 ## Tech stack
 
@@ -8,14 +8,19 @@ A modern, responsive portfolio website built with Vite and React, based on the o
 - React
 - TypeScript
 - Tailwind CSS
-- Radix UI and MUI component primitives
+- Motion (Framer Motion compatible)
+
+## Project structure
+
+- `src/app/data/portfolio.ts` contains all content (links, experience, projects, education, skills).
+- `src/styles/theme.css` holds shared styles and theme tokens.
 
 ## Getting started
 
 1. Install dependencies:
 
 ```bash
-npm i
+npm install
 ```
 
 2. Start the dev server:
@@ -30,8 +35,12 @@ npm run dev
 npm run build
 ```
 
-## Design source
+## Deploy (GitHub Pages)
 
-The original design file is available in Figma:
+If deploying to GitHub Pages, make sure the Vite base path is configured and run:
 
-- https://www.figma.com/design/KH3xaFha8KQ5i8vi9Q8J1x/Portfolio-website-design
+```bash
+npm run build
+```
+
+Then publish the `dist/` folder using your preferred GitHub Pages workflow.
