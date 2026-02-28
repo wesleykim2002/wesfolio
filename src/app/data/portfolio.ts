@@ -49,7 +49,7 @@ export const portfolio = {
     lines: [
       "I'm a UW Mechatronics Engineering graduate with a passion for software development.",
       "I love building things that solve real problems and make people's lives easier.",
-      "When I'm not coding, you can find me at the Rogers Center cheering on the Blue Jays or out on a lake fishing. Don't talk to me about November 1, 2025.",
+      "When I'm not coding, you can find me at the Rogers Center cheering on the Blue Jays or out on a lake fishing. We don't talk about November 1, 2025.",
     ],
   },
   skills: [

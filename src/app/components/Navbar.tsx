@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { portfolio } from '../data/portfolio';
 
 export function Navbar() {
@@ -79,56 +79,36 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <a href="/" className="font-semibold text-xl">
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-inner">
+          <a href="/" className="navbar-brand">
             {portfolio.person.name}
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`/#${item.id}`}
-                  onClick={() => {
-                    isClickLockedRef.current = true;
-                    setActiveSection(item.id);
-                  }}
-                  className={`transition-colors ${
-                    activeSection === item.id
-                      ? 'text-blue-600'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <button
-              type="button"
-              className="rounded-full border border-gray-200 p-2 text-gray-700 hover:text-gray-900 hover:border-gray-300 transition-colors"
-              onClick={() => setIsDark((prev) => !prev)}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+          <div className="navbar-links">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`/#${item.id}`}
+                onClick={() => {
+                  isClickLockedRef.current = true;
+                  setActiveSection(item.id);
+                }}
+                className={`navbar-link ${
+                  activeSection === item.id ? 'navbar-link-active' : ''
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="navbar-mobile-actions">
             <button
-              type="button"
-              className="rounded-full border border-gray-200 p-2 text-gray-700 hover:text-gray-900 hover:border-gray-300 transition-colors"
-              onClick={() => setIsDark((prev) => !prev)}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
-              className=""
+              className="navbar-mobile-toggle"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -139,7 +119,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 flex flex-col gap-4">
+          <div className="navbar-mobile-menu">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -149,10 +129,8 @@ export function Navbar() {
                   setActiveSection(item.id);
                   setIsOpen(false);
                 }}
-                className={`text-left transition-colors ${
-                  activeSection === item.id
-                    ? 'text-blue-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                className={`navbar-link navbar-link-mobile ${
+                  activeSection === item.id ? 'navbar-link-active' : ''
                 }`}
               >
                 {item.label}

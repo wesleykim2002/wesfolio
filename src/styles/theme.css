@@ -185,6 +185,49 @@
 }
 
 @layer components {
+  .navbar {
+    @apply fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-sm z-50;
+  }
+
+  .navbar-container {
+    @apply max-w-6xl mx-auto px-6 py-4;
+  }
+
+  .navbar-inner {
+    @apply flex items-center justify-between;
+  }
+
+  .navbar-brand {
+    @apply font-semibold text-xl;
+  }
+
+  .navbar-links {
+    @apply hidden md:flex items-center gap-6;
+  }
+
+  .navbar-link {
+    @apply transition-colors text-gray-600 hover:text-gray-900;
+  }
+
+  .navbar-link-active {
+    @apply text-blue-600;
+  }
+
+  .navbar-mobile-actions {
+    @apply md:hidden flex items-center gap-3;
+  }
+
+  .navbar-mobile-toggle {
+    @apply transition-colors;
+  }
+
+  .navbar-mobile-menu {
+    @apply md:hidden mt-4 pb-4 flex flex-col gap-4;
+  }
+
+  .navbar-link-mobile {
+    @apply text-left;
+  }
   .about-section {
     @apply min-h-screen flex items-center py-20 px-6;
   }
