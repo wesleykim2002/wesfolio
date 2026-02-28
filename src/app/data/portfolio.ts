@@ -185,21 +185,21 @@ export const portfolio = {
     },
   ] as Experience[],
   projects: [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, inventory management, and real-time order tracking.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-      githubUrl: 'https://github.com/yourusername/project1',
-      liveUrl: 'https://project1.example.com',
-      imageColor: 'from-blue-500 to-cyan-500',
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with drag-and-drop interface, real-time updates, and team features.',
-      technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-      githubUrl: 'https://github.com/yourusername/project2',
-      liveUrl: 'https://project2.example.com',
-      imageColor: 'from-purple-500 to-pink-500',
-    },
+    // {
+    //   title: 'E-Commerce Platform',
+    //   description: 'A full-featured e-commerce platform with payment integration, inventory management, and real-time order tracking.',
+    //   technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    //   githubUrl: 'https://github.com/yourusername/project1',
+    //   liveUrl: 'https://project1.example.com',
+    //   imageColor: 'from-blue-500 to-cyan-500',
+    // },
+    // {
+    //   title: 'Task Management App',
+    //   description: 'Collaborative task management application with drag-and-drop interface, real-time updates, and team features.',
+    //   technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+    //   githubUrl: 'https://github.com/yourusername/project2',
+    //   liveUrl: 'https://project2.example.com',
+    //   imageColor: 'from-purple-500 to-pink-500',
+    // },
   ] as Project[],
 };

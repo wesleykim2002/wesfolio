@@ -9,7 +9,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <motion.div
-      className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden"
+      className="project-card"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -18,11 +18,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onHoverEnd={() => setIsHovered(false)}
     >
       <motion.div 
-        className={`h-48 bg-gradient-to-br ${project.imageColor} flex items-center justify-center text-white text-4xl relative overflow-hidden`}
+        className={`project-card-hero ${project.imageColor}`}
         animate={{ scale: isHovered ? 1.1 : 1 }}
         transition={{ duration: 0.3 }}
       >
         <motion.div
+          className="project-card-hero-text"
           initial={{ rotate: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -30,15 +31,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </motion.div>
       </motion.div>
       
-      <div className="p-6">
-        <h3 className="text-2xl mb-3">{project.title}</h3>
-        <p className="text-gray-700 mb-4 leading-relaxed">{project.description}</p>
+      <div className="project-card-body">
+        <h3 className="project-card-title">{project.title}</h3>
+        <p className="project-card-description">{project.description}</p>
         
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="project-tech-list">
           {project.technologies.map((tech, i) => (
             <motion.span
               key={i}
-              className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm"
+              className="project-tech-badge"
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -50,13 +51,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           ))}
         </div>
         
-        <div className="flex gap-4">
+        <div className="project-links">
           {project.githubUrl && (
             <motion.a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
+              className="project-link project-link-neutral"
               whileHover={{ x: 5 }}
             >
               <Github size={18} />
@@ -68,7 +69,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+              className="project-link project-link-primary"
               whileHover={{ x: 5 }}
             >
               <ExternalLink size={18} />
@@ -85,22 +86,32 @@ export function Projects() {
   const [ref, isInView] = useInView({ threshold: 0.1 });
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="projects-section" ref={ref}>
+      <div className="projects-container">
         <motion.h2 
-          className="text-4xl mb-12 text-center"
+          className="projects-title"
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.6 }}
         >
           Projects
         </motion.h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {portfolio.projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
+        {portfolio.projects.length === 0 ? (
+          <motion.p 
+            className="projects-empty"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Stay Tuned! 👀
+          </motion.p>
+        ) : (
+          <div className="projects-grid">
+            {portfolio.projects.map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
